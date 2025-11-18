@@ -1,0 +1,50 @@
+﻿@model TechWorkshops.Models.Inscripcion
+
+<h2>Nueva Inscripción</h2>
+
+<form asp-action="Crear" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <label>Nombre</label>
+    <input asp-for="Nombre" class="form-control" />
+    <span asp-validation-for="Nombre" class="text-danger"></span>
+
+    <label>Apellidos</label>
+    <input asp-for="Apellidos" class="form-control" />
+    <span asp-validation-for="Apellidos" class="text-danger"></span>
+
+    <label>Correo</label>
+    <input asp-for="Correo" class="form-control" />
+    <span asp-validation-for="Correo" class="text-danger"></span>
+
+    <label>Teléfono</label>
+    <input asp-for="Telefono" class="form-control" />
+    <span asp-validation-for="Telefono" class="text-danger"></span>
+
+    <label>Taller</label>
+    <select asp-for="TallerSeleccionado" class="form-select"
+            asp-items="Html.GetEnumSelectList<TechWorkshops.Models.Taller>()"></select>
+    <span asp-validation-for="TallerSeleccionado" class="text-danger"></span>
+
+    <label>Nivel</label>
+    <select asp-for="NivelExperiencia" class="form-select"
+            asp-items="Html.GetEnumSelectList<TechWorkshops.Models.Nivel>()"></select>
+    <span asp-validation-for="NivelExperiencia" class="text-danger"></span>
+
+    <label>Fecha del taller</label>
+    <input asp-for="FechaTaller" type="date" class="form-control" />
+    <span asp-validation-for="FechaTaller" class="text-danger"></span>
+
+    <div class="form-check mt-3">
+        <input asp-for="AceptaTerminos" class="form-check-input" />
+        <label asp-for="AceptaTerminos" class="form-check-label">Acepto términos</label>
+        <span asp-validation-for="AceptaTerminos" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-success mt-3">Registrar</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+}

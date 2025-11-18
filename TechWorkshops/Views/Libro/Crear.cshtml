@@ -1,0 +1,44 @@
+﻿@model TechWorkshops.Models.Libro
+
+@* show validation summary above the page title *@
+<div asp-validation-summary="All" class="alert alert-danger" role="alert"></div>
+
+<h2>Registrar Libro</h2>
+
+<form asp-action="Crear" method="post">
+    <label>Título</label>
+    <input asp-for="Titulo" class="form-control" />
+    <span asp-validation-for="Titulo" class="text-danger d-block"></span>
+
+    <label>Autor</label>
+    <input asp-for="Autor" class="form-control" />
+    <span asp-validation-for="Autor" class="text-danger d-block"></span>
+
+    <label>Categoría</label>
+    <select asp-for="Categoria" class="form-select"
+            asp-items="Html.GetEnumSelectList<TechWorkshops.Models.Categoria>()"></select>
+    <span asp-validation-for="Categoria" class="text-danger d-block"></span>
+
+    <label>Año de publicación</label>
+    <input asp-for="AnioPublicacion" class="form-control" />
+    <span asp-validation-for="AnioPublicacion" class="text-danger d-block"></span>
+
+    <label>Número de páginas</label>
+    <input asp-for="NumeroPaginas" class="form-control" />
+    <span asp-validation-for="NumeroPaginas" class="text-danger d-block"></span>
+
+    <label>Código Interno</label>
+    <input asp-for="CodigoInterno" class="form-control" />
+    <span asp-validation-for="CodigoInterno" class="text-danger d-block"></span>
+
+    <div class="form-check mt-3">
+        <input asp-for="Disponible" class="form-check-input" />
+        <label asp-for="Disponible" class="form-check-label"></label>
+    </div>
+
+    <button class="btn btn-success mt-3">Guardar</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

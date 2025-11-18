@@ -1,0 +1,40 @@
+﻿@model IEnumerable<TechWorkshops.Models.Inscripcion>
+
+<h1>Inscripciones</h1>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">@TempData["msg"]</div>
+}
+
+<a class="btn btn-primary" href="/Inscripcion/Crear">Nueva Inscripción</a>
+
+<table class="table mt-3 table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Taller</th>
+            <th>Nivel</th>
+            <th>Fecha</th>
+            <th>Términos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Nombre</td>
+                <td>@x.Apellidos</td>
+                <td>@x.Correo</td>
+                <td>@x.Telefono</td>
+                <td>@x.TallerSeleccionado</td>
+                <td>@x.NivelExperiencia</td>
+                <td>@x.FechaTaller.ToShortDateString()</td>
+                <td>@(x.AceptaTerminos ? "Sí" : "No")</td>
+            </tr>
+        }
+    </tbody>
+</table>

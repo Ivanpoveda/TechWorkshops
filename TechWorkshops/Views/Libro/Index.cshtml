@@ -1,0 +1,38 @@
+﻿model IEnumerable<TechWorkshops.Models.Libro>
+
+    <h1>Libros registrados</h1>
+
+@if (TempData["msg"] != null)
+{
+        <div class="alert alert-success">@TempData["msg"]</div>
+}
+
+    <a class="btn btn-primary mb-3" href="/Libro/Crear">Nuevo Libro</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Categoría</th>
+                <th>Año</th>
+                <th>Páginas</th>
+                <th>Código</th>
+                <th>Disp.</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.Titulo</td>
+                    <td>@x.Autor</td>
+                    <td>@x.Categoria</td>
+                    <td>@x.AnioPublicacion</td>
+                    <td>@x.NumeroPaginas</td>
+                    <td>@x.CodigoInterno</td>
+                    <td>@(x.Disponible ? "Sí" : "No")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
